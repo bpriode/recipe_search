@@ -17,7 +17,7 @@ response.json().then(function(data){
       <div class="box">
       <h4>${data.results[i].title}</h4>
       <img src="http://lorempixel.com/output/food-q-c-150-150-5.jpg"}>
-      <a href="${data.results[i].href}">
+      <a href="${data.results[i].href}"><span></span></a>
       </div>
       `;
     }else{
@@ -27,7 +27,7 @@ response.json().then(function(data){
     <div class="box">
     <h4>${data.results[i].title}</h4>
     <img src=${data.results[i].thumbnail}>
-    <a href="${data.results[i].href}">
+    <a href="${data.results[i].href}"><span></span></a>
     </div>
     `;
 
