@@ -3,31 +3,36 @@ let button = document.getElementById('button');
 let input = document.getElementById('search');
 
 button.addEventListener("click", function(){
-  top_row.innerHTML = "";
+  rows.innerHTML = "";
   let search="https://recipepuppyproxy.herokuapp.com/api/?q="  + input.value;
 
 fetch(search)
 
 .then(function(response) {
 response.json().then(function(data){
-  for (var i = 0; i < 8; i++) {
+  for (var i = 0; i < 12; i++) {
       if (data.results[i].thumbnail === "") {
-      top_row.innerHTML +=
+      rows.innerHTML +=
       `
+      <div class="box">
       <h4>${data.results[i].title}</h4>
-      <img src=http://via.placeholder.com/150x150}>
+      <img src="http://lorempixel.com/output/food-q-c-150-150-5.jpg"}>
       <a href="${data.results[i].href}">
+      </div>
       `;
     }else{
 
-    top_row.innerHTML +=
+    rows.innerHTML +=
     `
+    <div class="box">
     <h4>${data.results[i].title}</h4>
     <img src=${data.results[i].thumbnail}>
     <a href="${data.results[i].href}">
+    </div>
     `;
+
   }
-  container.appendChild(top_row);
+  container.appendChild(rows);
 };
 }
 )
